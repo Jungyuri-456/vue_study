@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import Form_Ex from './components/Form_Ex.vue';
 import Reservation from './components/Reservation.vue';
+import OnMounted from './components/OnMounted.vue';
 const currentPage = ref("")
 console.log(currentPage);
 
@@ -21,9 +22,11 @@ console.log(currentPage.value);
   <div class="btns">
     <button @click="showPage('Form_Ex')">폼예제</button>
     <button @click="showPage('Reservation')">예약신청</button>
+    <button @click="showPage('OnMounted')">onMounted예제</button>
   </div>
     <Form_Ex v-if="currentPage === 'Form_Ex'"/>
     <Reservation v-if="currentPage === 'Reservation'"/>
+    <OnMounted v-if="currentPage === 'OnMounted'"/>
   </div>
 
 
