@@ -22,8 +22,10 @@ onMounted(() => {
   //   다크모드 전환
 
   isDarkMode.value = window.matchMedia("(prefers-color-scheme: dark)").matches;
-//   스크롤감지 기능
-
+  //   스크롤감지 기능
+  window.addEventListener("scroll", () => {
+    showTopButton.value = window.scrollY > 200;
+  });
 });
 // 장바구니 저장 함수
 const saveCart = () => {
@@ -49,15 +51,11 @@ const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value;
 };
 // gotop버튼
-window.addEventListener("scroll" , ()=>{
-    showTopButton.value = window.scrollY > 200
-})
-
-const showTopButton = ref(false)
-//  페이지가 상단으로 이동하는 함수
-const scrollToTop = ()=>{
-    window.scrollTo({top:0, behavior:"smooth"})
-}
+const showTopButton = ref(false);
+// 페이지가 상단으로 이동하는 함수
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 </script>
 
 <template>
@@ -95,7 +93,7 @@ const scrollToTop = ()=>{
       </button>
     </div>
     <!-- gotop버튼 -->
-    <button v-if="showTopButton"  @click="scrollToTop" class="topBtn">
+    <button v-if="showTopButton" @click="scrollToTop" class="topBtn">
       🔝 TOP
     </button>
   </div>

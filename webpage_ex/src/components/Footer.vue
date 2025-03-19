@@ -1,14 +1,14 @@
+<script setup></script>
 <template>
-    <!-- 푸터 -->
-  <footer class="footer">
+ <!-- 푸터 -->
+ <footer class="footer">
     <p>© 2025 MyShop. All rights reserved.</p>
     <div class="sns">
       <a href="#">Facebook</a> | <a href="#">Instagram</a> |
       <a href="#">Twitter</a>
     </div>
-  </footer>
+  </footer>   
 </template>
-
 <style scoped>
 /* 푸터 */
 .footer {

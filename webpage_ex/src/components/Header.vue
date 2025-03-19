@@ -1,5 +1,4 @@
 <script setup></script>
-
 <template>
   <header class="header">
     <div class="inner">
@@ -39,10 +38,10 @@
     </div>
   </header>
 </template>
-
-<style scope>
+<style scoped>
 .header {
   background-color: #007bff;
+  
 }
 .header .inner {
   display: flex;
@@ -56,11 +55,10 @@
   font-size: 1.5rem;
   font-weight: bold;
 }
-/* 네비게이션 */
+/*네비게이션 */
 .nav > ul {
   display: flex;
   gap: 20px;
-  
 }
 .nav a {
   color: white;
@@ -68,7 +66,6 @@
   font-weight: bold;
   padding: 10px;
   display: block;
-  
 }
 .menu-item {
   position: relative;
@@ -84,7 +81,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   opacity: 0;
   visibility: hidden;
-  transform: translate(10px);
+  transform: translateY(10px);
   transition: all 0.3s ease-in-out;
   z-index: 999;
 }
@@ -95,13 +92,13 @@
   font-size: 0.9rem;
   transition: background 0.2s;
 }
-.submenu a:hover{
-    background-color: #f1f1f1;
+.submenu a:hover {
+  background: #f1f1f1;
 }
-.menu-item:hover .submenu{
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+.menu-item:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 /* 로그인 & 회원가입 버튼 */
 .auth button {
