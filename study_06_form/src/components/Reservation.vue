@@ -15,18 +15,16 @@ const reservation = ref({
   requests: "",
   agree: false, //약관동의 여부
 });
-const isSubmited = ref(false);
 // console.log(reservation);
-
-//  페이지가 로드될때 로컬스토리지에서 저장된 예약 정보를 불러오는 함수
+const isSubmited = ref(false);
+// 페이지가 로드될때 로컬스토리지에서 저장된 예약 정보를 불러옴
 onMounted(() => {
   const savedReservations = localStorage.getItem("reservations");
   if (savedReservations) {
-    reservations.value = JSON.parse(savedReservations); // JSON문자열을 객체로 변환하는 코드
+    reservations.value = JSON.parse(savedReservations); // JSON문자열을 갤체로 변환
     isSubmited.value = reservations.value.length > 0;
   }
 });
-
 // 예약정보를 로컬스토리지에 저장하는 함수
 const saveReservations = () => {
   localStorage.setItem("reservations", JSON.stringify(reservations.value));
@@ -42,6 +40,7 @@ const submitForm = () => {
   reservations.value.push({ ...reservation.value });
   // console.log("새로운 예약 추가됨:", reservation.value);
   // console.log("전체 예약 목록:", reservations.value);
+  // /입력폼 초기화
   reservation.value = {
     name: "", //예약자 이름
     email: "", //예약자 이메일
@@ -52,25 +51,25 @@ const submitForm = () => {
   };
   // 예약정보 저장
   saveReservations();
-  //  예약이 제출되었음을 표시
+  // 예약이 제출되었음을 표시
   isSubmited.value = true;
-  //  예약 확인 페이지로 이동
+  // 예약 확인 페이지로 이동
   currentPage.value = "check";
 };
-//  예약취소 함수
+// 예약취소 함수
 const cancelReservation = (index) => {
-  //  사용자가 예약 취소를 진행
+  // 사용자가 예약 취소를 진행
   if (confirm("예약을 취소 하시겠습니까?")) {
     reservations.value.splice(index, 1);
-
+    // 예약 정보 저장
     saveReservations();
-    //  남아있는 예약이 있는지 확인하여 isSubmitted 업데이트
+    // 남아 있는 예약이 있는지 확인하여 isSubmited 업데이트
     isSubmited.value = reservations.value.length > 0;
-    //  모든 예약이 취소되면 처음화면으로 돌아감
-    if(!isSubmited.value) currentPage.value = "form"
+    // 모든 예약이 취소되면 처음 화면으로 돌아감
+    if (!isSubmited.value) currentPage.value = "";
+    if (!isSubmited.value) currentPage.value = "form";
   }
 };
-
 </script>
 
 <template>
@@ -91,7 +90,7 @@ const cancelReservation = (index) => {
         <input type="date" v-model="reservation.date" required />
         <label> 인원 수 : </label>
         <select v-model="reservation.guests">
-          <option v-for="n in 10" :key="n" value="n">{{ n }}명</option>
+          <option v-for="n in 10" :key="n" :value="n">{{ n }}명</option>
         </select>
         <label>요청사항 : </label>
         <textarea v-model="reservation.requests" rows="3"></textarea>
@@ -101,7 +100,7 @@ const cancelReservation = (index) => {
           >
         </label>
         <button type="submit">예약하기</button>
-        <button class="cancel">뒤로 가기</button>
+        <!-- <button class="cancel">뒤로 가기</button> -->
       </form>
     </div>
     <!--  예약 확인하기 -->
@@ -115,14 +114,14 @@ const cancelReservation = (index) => {
           <p><strong>이름:</strong>{{ res.name }}</p>
           <p><strong>이메일:</strong>{{ res.email }}</p>
           <p><strong>날짜:</strong>{{ res.date }}</p>
-          <p><strong>인원수:</strong>{{ res.guests }}</p>
+          <p><strong>인원 수:</strong>{{ res.guests }}</p>
           <p><strong>요청 사항:</strong>{{ res.requests }}</p>
           <button class="cancel" @click="cancelReservation(index)">
-            예약취소
+            예약 취소
           </button>
-          <button class="back" @click="currentPage='form'">뒤로가기</button>
         </div>
       </div>
+      <button class="back" @click="currentPage = 'form'">뒤로가기</button>
     </div>
   </div>
 </template>
@@ -147,27 +146,6 @@ textarea {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
-
-.btns{
-  width: 50%;
-  display: flex;
-  margin: 100px auto;
-  
-}
-button {
-  margin: 10px;
-  padding: 10px;
-  width: 100%;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
 }
 
 .cancel {

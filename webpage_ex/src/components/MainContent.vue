@@ -47,6 +47,7 @@ const activeTab = ref("notice");
       </div>
     </section>
     <!-- 공지사항&갤러리(탭 버튼) -->
+    
     <section class="tab-section inner">
       <div class="tabs">
         <button
@@ -134,11 +135,10 @@ const activeTab = ref("notice");
 }
 
 .tab-content {
-  background: rgb(255, 255, 255);
+ 
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin: 50px 0 50px 0 ;
 }
 .tab-content h2 {
 }

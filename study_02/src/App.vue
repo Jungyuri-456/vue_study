@@ -5,9 +5,13 @@ import Vcart from "./components/Vcart.vue";
 </script>
 
 <template>
-  <div><Vif /> <Vcomputed /><Vcart /></div>
+  <div>
+    <Vif />
+    <hr />
+    <Vcomputed />
+    <hr />
+    <Vcart />
+  </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

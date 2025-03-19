@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  padding: 5%;
+  max-width: 1200px;
+  margin: auto;
+}
+button {
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+  background-color: aquamarine;
+  border-radius: 5px;
+}
+button:hover{
+    background-color: rgb(94, 186, 155);  
+   color: #fff;
+}

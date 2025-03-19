@@ -4,7 +4,7 @@ import { ref } from "vue";
 const favoriteColor = ref("");
 const agree = ref(false);
 const selectedFruits = ref([]);
-const seletedCity = ref("");
+const selectedCity = ref("");
 const selectedHobbies = ref([])
 </script>
 
@@ -64,30 +64,30 @@ const selectedHobbies = ref([])
     </div>
   </div>
   <div class="radio-group">
-    <!-- 셀렉트 박스 값 바인딩 -->
+    <!-- 셀렉트 박스 값 바인딩  -->
     <h1>🎯 셀렉트 박스 값 바인딩 🎯</h1>
     <!-- 예제1:단일 선택 -->
     <h2>예제1:단일 선택</h2>
     <div class="select-group">
-      <p>🏙 도시를 선택하세요:</p>
-      <select v-model="seletedCity" class="custom-select">
+      <p>🏙️ 도시를 선택하세요:</p>
+      <select v-model="selectedCity" class="custom-select">
         <option value="" selected disabled>도시를 선택하세요.</option>
         <option value="서울">서울</option>
         <option value="부산">부산</option>
         <option value="대구">대구</option>
-        `
       </select>
       <p>
-        ✅ 선택한 도시: <strong>{{ seletedCity }}</strong>
+        ✅ 선택한 도시: <strong>{{ selectedCity }}</strong>
       </p>
     </div>
+    <!-- 예제2:다중 선택 -->
     <h2>예제 2: 다중 선택 (배열로 저장)</h2>
     <p>취미를 선택하세요 (Ctrl 또는 Shift 키를 누르고 여러 개 선택 가능):</p>
     <select v-model="selectedHobbies" class="custom-select" multiple>
-        <option value="독서">독서</option>
-        <option value="운동">운동</option>
-        <option value="게임">게임</option>
-        <option value="여행">여행</option>
+      <option value="독서">독서</option>
+      <option value="운동">운동</option>
+      <option value="게임">게임</option>
+      <option value="여행">여행</option>
     </select>
     <p>선택한 취미:{{ selectedHobbies }}</p>
   </div>
@@ -146,7 +146,7 @@ const selectedHobbies = ref([])
   left: 3px;
 }
 .custom-select {
-  padding: 5px 0 0 5px;
+  padding: 5px 10px;
   font-size: 16px;
   border: 2px solid gray;
   border-radius: 5px;
@@ -154,11 +154,9 @@ const selectedHobbies = ref([])
   cursor: pointer;
   transition: all 0.3s;
 }
-.custom-select:focus{
-    border-color: blue;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+.custom-select:focus {
+  border-color: blue;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
-
-
 </style>
