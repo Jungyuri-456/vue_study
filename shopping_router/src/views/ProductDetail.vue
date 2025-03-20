@@ -6,7 +6,7 @@ const router = useRouter();
 // useRouter()
 // 라우트를 변경할때(이동)할때 사용(push() , replace(), go())
 
-// console.log(route.params);
+// console.log(route.params);`
 // console.log(route.path);
 
 //goBack
