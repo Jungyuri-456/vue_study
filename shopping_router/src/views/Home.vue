@@ -5,25 +5,25 @@ const products = ref([
   {
     id: 1,
     name: "상품 A",
-    price: 10000,
+    price: 12900,
     image: "/public/images/product1.png",
   },
   {
     id: 2,
     name: "상품 B",
-    price: 24000,
+    price: 22500,
     image: "/public/images/product2.png",
   },
   {
     id: 3,
     name: "상품 C",
-    price: 13400,
+    price: 34000,
     image: "/public/images/product3.png",
   },
   {
     id: 4,
     name: "상품 D",
-    price: 36000,
+    price: 38900,
     image: "/public/images/product4.png",
   },
 ]);
@@ -32,6 +32,11 @@ const goToDetail = (id) => {
   //   console.log(id);
   router.push(`/product/${id}`);
 };
+//가격 포맷 함수
+const formatPrice = (price)=>{
+  console.log(price);
+  return `₩${price.toLocaleString()}`
+}
 </script>
 
 <template>
@@ -44,7 +49,7 @@ const goToDetail = (id) => {
           :src="product.image"
           :alt="product.name" />
         <p>상품명 : {{ product.name }}</p>
-        <p>금 액 : {{ product.price }}</p>
+        <p>금액 : {{ formatPrice(product.price) }}</p>
       </div>
     </div>
   </div>
