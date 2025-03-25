@@ -47,6 +47,7 @@ const maskedName = (name) => {
 <template>
   <div class="review-container">
     <h2>이용후기</h2>
+   
     <!-- 후기 카드 리스트 -->
     <div class="review-list">
       <div
@@ -85,13 +86,12 @@ const maskedName = (name) => {
   border-radius: 10px;
   background-color: #f9f9f9;
 }
-.user-image{
+.user-image {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-
 }
-.review-cotent{
+.review-cotent {
   text-align: left;
 }
 </style>
